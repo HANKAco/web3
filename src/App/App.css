@@ -21,24 +21,37 @@
   color: #09d3ac;
 }
 
+.search {
+  width: 50%;
+  margin-left: 200px;
+  margin-right: 100px;
+}
+
 .txTable {
-  max-width: 200px;
+  width: 50%;
   text-align: center;
   font-size: 10px;
-  margin: auto;
 }
 
 .table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto!important;
-    table-layout: fixed;
-    -webkit-overflow-scrolling: touch;
+  display: block;
+  width: 100%;
+  overflow-x: auto!important;
+  -webkit-overflow-scrolling: touch;
 }
 
-.time {
+.table td.time {
   max-width:100px;
+  width: 100px;
   overflow: hidden;
+}
+
+.table td.time1 {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100px;
 }
 
 .text-truncate {
@@ -53,4 +66,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100px;
+}
+.date {
+  width: 100px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  text-decoration: none;
+  background-color: #333;
+  color: white;
+}
+
+.sidenav a {
+  text-decoration: none;
+  color: white;
+}
+
+.zzzz {
+  margin: auto;
+  text-align: center!important;
 }

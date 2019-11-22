@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import axios from 'axios';
-import { web3, getBalance_address } from '../web3.js';
+import { web3, getBalance_address, createAccount, gasPrice } from '../web3.js';
+import { faHome, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class App extends Component {
   constructor(props) {
@@ -10,14 +13,6 @@ class App extends Component {
 
     this.search = this.search.bind(this)
     this.transaction_history = this.transaction_history.bind(this)
-  }
-
-  async search(e) {
-      try {
-        getBalance_address(e)
-      } catch (err) {
-        console.log(err)
-      }
   }
 
   transaction_history (address) {
@@ -48,29 +43,56 @@ class App extends Component {
     }
   }
 
+  async search(e) {
+    try {
+      getBalance_address(e)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async create_acc() {
+    try {
+      createAccount();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  async gas_price() {
+    try {
+      gasPrice();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
+    const { showing } = this.state;
     return (
       <div className="App">
-        <input type="text" placeholder="Address" onBlur={(e)=>{this.search(e.target.value);this.transaction_history(e.target.value);}}/>
+        <div class='card-body'>
+          <input type="text" placeholder="Search by address" class='search' onBlur={(e)=>{this.transaction_history(e.target.value);}}/>
+        </div>
+        <div class='zzzz'>
         <div class='card-body'>
           <div class='table-responsive mb-2 mb-md-0'>
-            <table class ='table table-hover txTable'>
+            <table class ='table table-hover txTable' align="center">
               <thead class='thead-light'>
                 <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Block</th>
-                  <th scope="col">Txn #</th>
-                  <th scope="col">From</th>
-                  <th scope="col">To</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col">Txn Fee</th>
+                  <th scope="col" class='date'>Date</th>
+                  <th scope="col" class='date'>Block</th>
+                  <th scope="col" class='date'>Txn #</th>
+                  <th scope="col" class='date'>From</th>
+                  <th scope="col" class='date'>To</th>
+                  <th scope="col" class='date'>Amount</th>
+                  <th scope="col" class='date'>Txn Fee</th>
                 </tr>
               </thead>
               <tbody>
                   {this.state.tx.map((item) => {
                     return (
                       <tr>
-                        <td class="d-none d-sm-table-cell time">{item.time}</td>
+                        <td class="d-none d-sm-table-cell time1">{item.time}</td>
                         <td class="d-none d-sm-table-cell time">{item.block}</td>
                         <td class="d-none d-sm-table-cell time"><a class="hash-tag text-truncate" href="/">{item.hash}</a></td>
                         <td class="d-none d-sm-table-cell time"><a class="hash-tag text-truncate" href="/">{item.from}</a></td>
@@ -83,6 +105,7 @@ class App extends Component {
               </tbody>
             </table>
           </div>
+        </div>
         </div>
       </div>
     );

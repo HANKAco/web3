@@ -1,3 +1,7 @@
+html {
+  color: black;
+}
+
 .Send {
   text-align: center;
 }
@@ -19,4 +23,29 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+form  {
+  display: table;
+}
+
+p     {
+  display: table-row;
+}
+
+label {
+  display: table-cell;
+}
+
+input {
+  display: table-cell;
+  width: 500px;
+}
+
+.btn-primary {
+  float: right;
+}
+
+#private, #privatelbl {
+  display: none;
 }

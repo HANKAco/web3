@@ -18,17 +18,12 @@ const routing = (
           <li class="nav-item">
               <span class="oi oi-grid-four-up"></span>
               <FontAwesomeIcon icon={faHome}/>
-              <Link to="/" class="">  home</Link>
-          </li>
-          <li class="nav-item">
-              <span class="oi oi-grid-four-up"></span>
-              <FontAwesomeIcon icon={faUser}/>
-              <Link to="/account" class="">   account</Link>
+              <Link to="/" class="">home</Link>
           </li>
           <li class="nav-item">
               <span class="oi oi-grid-four-up"></span>
               <FontAwesomeIcon icon={faLock}/>
-              <Link to="/send" class="">   send</Link>
+              <Link to="/send" class="">send</Link>
           </li>
         </ul>
       </div>

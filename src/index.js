@@ -6,8 +6,9 @@ import './index.css';
 import App from './App/App';
 import Account from './Account/Account';
 import Send from './Send/Send';
+import Create from './Create/Create';
 import * as serviceWorker from './serviceWorker';
-import { faHome, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faLock, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const routing = (
@@ -17,18 +18,41 @@ const routing = (
         <ul class="nav flex-column sidenav">
           <li class="nav-item">
               <span class="oi oi-grid-four-up"></span>
-              <FontAwesomeIcon icon={faHome}/>
-              <Link to="/" class="">home</Link>
+              <div class='navimg'>
+                <Link to="/">
+                  <FontAwesomeIcon icon={faHome}/>
+                </Link>
+              </div>
           </li>
           <li class="nav-item">
               <span class="oi oi-grid-four-up"></span>
-              <FontAwesomeIcon icon={faLock}/>
-              <Link to="/send" class="">send</Link>
+              <div class='navimg'>
+                <Link to="/account" class="">
+                  <FontAwesomeIcon icon={faUser}/>
+                </Link>
+              </div>
+          </li>
+          <li class="nav-item">
+              <span class="oi oi-grid-four-up"></span>
+              <div class='navimg'>
+                <Link to="/create" class="">
+                  <FontAwesomeIcon icon={faPlus}/>
+                </Link>
+              </div>
+          </li>
+          <li class="nav-item">
+              <span class="oi oi-grid-four-up"></span>
+              <div class='navimg'>
+                <Link to="/send" class="">
+                  <FontAwesomeIcon icon={faLock}/>
+                </Link>
+              </div>
           </li>
         </ul>
       </div>
       <Route exact path="/" component={App} />
       <Route path="/account" component={Account} />
+      <Route path="/create" component={Create} />
       <Route path="/send" component={Send} />
     </div>
   </Router>

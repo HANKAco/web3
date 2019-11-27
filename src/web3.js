@@ -25,12 +25,20 @@ export const web3 = new Web3(provider);
     } catch (error) {}
 });
 
-export const getBalance_address = (address) => {
+export const Balance = (address) => {
   return new Promise((resolve, reject) => {
     web3.eth.getBalance(address)
     .then(function(balance) {
       balance = web3.utils.fromWei(balance, 'ether')
-      console.log(balance)
+    });
+  });
+};
+
+export const accountList = () => {
+  return new Promise((resolve, reject) => {
+    web3.eth.getAccounts()
+    .then(function(account) {
+      var list = [account]
     });
   });
 };
@@ -42,14 +50,11 @@ export const createAccount = () => {
     var acc = web3.eth.accounts.create();
 
     private_accounts.push({
-      public: acc.address,
-      private: acc.privateKey
+      address: acc.address,
+      privateKey: acc.privateKey
     })
 
-    web3.eth.getAccounts()
-    .then(function(val) {
-      get_accounts.push(val)
-    });
+    console.log(private_accounts)
   });
 };
 

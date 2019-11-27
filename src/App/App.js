@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import axios from 'axios';
-import { web3, getBalance_address, createAccount, gasPrice } from '../web3.js';
+import { web3, Balance, createAccount, gasPrice } from '../web3.js';
 import { faHome, faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -45,27 +45,11 @@ class App extends Component {
 
   async search(e) {
     try {
-      getBalance_address(e)
+      Balance(e)
     } catch (err) {
       console.log(err)
     }
   }
-
-  async create_acc() {
-    try {
-      createAccount();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  async gas_price() {
-    try {
-      gasPrice();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   render() {
     const { showing } = this.state;
     return (
@@ -100,7 +84,7 @@ class App extends Component {
                         <td class="d-none d-sm-table-cell time">{item.value} Ether</td>
                         <td class="d-none d-sm-table-cell time">{item.fee}</td>
                       </tr>
-                  );
+                    );
                   })}
               </tbody>
             </table>

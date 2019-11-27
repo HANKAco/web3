@@ -68,25 +68,9 @@
   white-space: nowrap;
   width: 100px;
 }
+
 .date {
   width: 100px;
-}
-
-.sidenav {
-  height: 100%;
-  width: 100px;
-  position: fixed;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 60px;
-  text-decoration: none;
-  background-color: #333;
-  color: white;
-}
-
-.sidenav a {
-  text-decoration: none;
-  color: white;
 }
 
 .zzzz {

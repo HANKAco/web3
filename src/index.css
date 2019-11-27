@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.navimg {
+  padding: 5px;
+  display: inline;
+}
+
+.sidenav {
+  height: 100%;
+  width: 50px;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  text-decoration: none;
+  background-color: #333;
+  color: white;
+  margin-right: 100px;
+  text-align: center;
+}
+
+.sidenav a {
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  display: inline;
+}

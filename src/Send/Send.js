@@ -12,6 +12,7 @@ class Send extends Component {
 
     this.send_eth = this.send_eth.bind(this);
     this.from_addr = this.from_addr.bind(this);
+    this.create = this.create.bind(this);
   }
 
   async send_eth(from,to,amount,gas) {
@@ -30,8 +31,16 @@ class Send extends Component {
     }
   }
 
+  async create() {
+    try {
+      createAccount();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   render() {
-    this.from_addr();
+    this.create();
     return (
       <div className="Send">
         <div class="container">

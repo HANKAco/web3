@@ -6,31 +6,43 @@ import { web3, createAccount } from '../web3.js';
 class Create extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = { acc: [] };
     this.create = this.create.bind(this);
   }
   async create() {
-    try {
-      createAccount();
-    } catch (err) {
-      console.log(err)
-    }
+    var acc = web3.eth.accounts.create();
+
+    this.state.acc.push({
+      address: acc.address,
+      privateKey: acc.privateKey
+    })
+    this.setState({acc: this.state.acc})
   }
 
   render() {
-    this.create();
     return (
       <div className="Create">
         <div class="container">
           <div class="row">
             <div class="col-sm-10 form-group-lg">
+              <button type="button" Value='Send' class="btn btn-primary" onClick={()=>this.create()}>Create</button>
               <form>
-              <div class="form-group">
-                <label class="form-check-label">Address</label>
-                <input type="text" class="form-control" placeholder="" class='address' ref='address' id='address'/>
-              </div>
-                <div class="form-group">
-                  <button type="button" Value='Send' class="btn btn-primary" onClick={()=>this.create()}>Send</button>
+                <div class='card-body'>
+                  <h5 class="card-title">Account</h5>
+                  <p>be aware this will generate a private key</p>
+                  {this.state.acc.map((item) => {
+                    return (
+                      <p>
+                        <ul>
+                          <label>Address</label>
+                          <li>{item.address}</li>
+                          <br></br>
+                          <label>Private Key</label>
+                          <li>{item.privateKey}</li>
+                        </ul>
+                      </p>
+                    );
+                  })}
                 </div>
               </form>
             </div>

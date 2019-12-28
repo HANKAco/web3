@@ -41,3 +41,8 @@ input {
 .btn-primary {
   float: right;
 }
+
+li {
+  float: left;
+  text-align: left;
+}

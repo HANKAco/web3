@@ -45,7 +45,6 @@ export const accountList = () => {
 
 export const createAccount = () => {
   return new Promise((resolve, reject) => {
-    let get_accounts = [];
     var private_accounts = [];
     var acc = web3.eth.accounts.create();
 
@@ -53,8 +52,6 @@ export const createAccount = () => {
       address: acc.address,
       privateKey: acc.privateKey
     })
-
-    console.log(private_accounts)
   });
 };
 

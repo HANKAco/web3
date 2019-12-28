@@ -40,7 +40,7 @@ class Send extends Component {
   }
 
   render() {
-    this.create();
+    this.from_addr();
     return (
       <div className="Send">
         <div class="container">
@@ -67,7 +67,7 @@ class Send extends Component {
                   <label class="form-check-label">Total:</label>
                 </div>
                 <div class="form-group">
-                  <button type="button" Value='Send' class="btn btn-primary" onClick={()=>this.send_eth(this.refs.from.value,this.refs.to.value,web3.utils.toWei(this.refs.amount.value, "ether"),this.refs.gas.value)}>Send</button>
+                  <button type="button" Value='Send' class="btn btn-primary" onClick={()=>this.send_eth(this.refs.from.value,this.refs.to.value,web3.utils.toWei(this.refs.amount.value, "ether"))}>Send</button>
                 </div>
               </form>
             </div>

@@ -1,5 +1,5 @@
 .Create {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .App-logo {
@@ -45,4 +45,8 @@ input {
 li {
   float: left;
   text-align: left;
+}
+
+.list-header {
+  background-color: #D3D3D3;
 }
